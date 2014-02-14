@@ -37,7 +37,7 @@ template '/var/lib/solr.start' do
   group 'root'
   mode '0755'
   variables(
-    :solr_dir => extract_path,
+    :solr_dir => "#{extract_path}/solr-#{node['solr']['version']}",
     :solr_home => node['solr']['data_dir'],
     :pid_file => '/var/run/solr.pid',
     :log_file => '/var/log/solr.log'
