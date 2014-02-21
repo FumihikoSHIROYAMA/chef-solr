@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd <%= @solr_dir %>/example
-COMMAND="java -Xms128M -Xmx512M -Dsolr.solr.home=<%= @solr_home %> -Djetty.port=8984 -jar start.jar"
+COMMAND="java -Xms<%= @solr_xms %>M -Xmx<%= @solr_xmx %>M -Dsolr.solr.home=<%= @solr_home %> -Djetty.port=<%= @solr_port %> -jar start.jar"
 nohup $COMMAND > <%= @log_file %> 2>&1 &
 echo $! > <%= @pid_file %>
 exit $?

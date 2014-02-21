@@ -39,6 +39,9 @@ template '/var/lib/solr.start' do
   variables(
     :solr_dir => "#{extract_path}/solr-#{node['solr']['version']}",
     :solr_home => node['solr']['data_dir'],
+    :solr_xms => node['solr']['xms'],
+    :solr_xmx => node['solr']['xmx'],
+    :solr_port => node['solr']['port'],
     :pid_file => '/var/run/solr.pid',
     :log_file => '/var/log/solr.log'
   )
